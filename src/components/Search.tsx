@@ -10,7 +10,7 @@ const Search: React.FC = () => {
     const [errorMsg, setErrorMsg] = useState<string>("");
 
     const Search = () => {
-        fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&api_key=09ea7e86a3c38d53ed803603850a51b3&format=json&page=1`)
+        fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&api_key=e0b02b6eb31c5a1bd47c38f2448a870f&format=json&page=1`)
             .then(res => res.json())
             .then((result) => {
                 console.log(result);
@@ -20,11 +20,6 @@ const Search: React.FC = () => {
                 console.log(error);
                 setErrorMsg(error.message);
             });
-    };
-
-    const Add = () => {
-        console.log("Add");
-        console.log(albumData);
     };
 
     return (
@@ -42,7 +37,6 @@ const Search: React.FC = () => {
                             {"\n"}
                             {item.playcount} écoutes
                         </Text>
-                        <Button onPress={Add} title="+" color="#89375F" />
                     </View>
                 )}
             />

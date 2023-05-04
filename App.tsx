@@ -8,15 +8,18 @@
  * @format
  */
 
-import React, { type PropsWithChildren } from 'react';
-import { Text, View } from 'react-native';
+import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { NavigationContainer } from '@react-navigation/native';
-import Section from './Section';
-import Search from './Search';
+import Section from './src/components/Section';
+import Search from './src/components/Search';
+import DiskForm from './src/components/DiskFrom';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { DATA } from './src/data/data';
+import * as db from "./src/database/db";
 
 function CollectionScreen() {
+  console.log(DATA)
   return (
     <Section />
   );
@@ -30,9 +33,7 @@ function SearchScreen() {
 
 function AddScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Add</Text>
-    </View>
+    <DiskForm />
   );
 }
 
@@ -60,11 +61,13 @@ function MyTabs() {
       <Tab.Screen name="Collection" component={CollectionScreen} />
       <Tab.Screen name="Recherche" component={SearchScreen} />
       <Tab.Screen name="Ajouter" component={AddScreen} />
+
     </Tab.Navigator>
   );
 }
 
 export default function App() {
+  db.initDB();
   return (
     <NavigationContainer>
       <MyTabs />

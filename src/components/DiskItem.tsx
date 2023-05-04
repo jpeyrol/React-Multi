@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
 interface Props {
@@ -45,4 +45,4 @@ const styles = StyleSheet.create({
         fontStyle: 'italic',
     }
 
-});
+}); */
